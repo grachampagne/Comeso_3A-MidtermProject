@@ -1,7 +1,13 @@
 @import "tailwindcss";
 
-/* Custom color palette */
+/* Custom color palette - defined as CSS custom properties */
 :root {
+    --color-primary: #904C77;
+    --color-secondary: #E49AB0;
+    --color-accent: #ECB8A5;
+    --color-light: #ECCFC3;
+    --color-lavender: #957D95;
+    
     --primary-purple: #904C77;
     --secondary-pink: #E49AB0;
     --accent-peach: #ECB8A5;
@@ -24,6 +30,21 @@ html {
 .fade-in.appear {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Peeking sticker animation */
+.peeking-sticker {
+    animation: peeking 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes peeking {
+    0%, 100% {
+        transform: translateX(-30px) rotate(6deg);
+    }
+    50% {
+        transform: translateX(0) rotate(0deg);
+    }
 }
 
 /* Skill bar animations */

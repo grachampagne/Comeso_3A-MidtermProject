@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './index.css';
 
 const Home = () => {
@@ -17,58 +17,38 @@ const Home = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center bg-gradient-to-r from-[#ECCFC3] to-[#ECB8A5] py-16 relative overflow-hidden">
-      <div className="absolute -left-4 top-1/4 z-10 animate-bounce">
-        <div className="relative">
-        <div className="w-32 h-40 bg-gradient-to-br from-[#904C77] to-[#E49AB0] rounded-t-full rounded-b-lg shadow-lg transform rotate-6 hover:rotate-0 transition-transform duration-300">
-            <div className="absolute top-8 left-6 w-20 h-16 bg-[#ECCFC3] rounded-full">
-            <div className="absolute top-5 left-4 w-3 h-3 bg-gray-800 rounded-full animate-pulse"></div>
-            <div className="absolute top-5 right-4 w-3 h-3 bg-gray-800 rounded-full animate-pulse"></div>
-            <div className="absolute top-8 left-3 w-2 h-1.5 bg-pink-300 rounded-full opacity-60"></div>
-            <div className="absolute top-8 right-3 w-2 h-1.5 bg-pink-300 rounded-full opacity-60"></div>
-            <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-6 h-3 border-b-2 border-gray-800 rounded-full"></div>
-            </div>
-          <div className="absolute -top-2 left-4 w-6 h-8 bg-[#904C77] rounded-t-full"></div>
-          <div className="absolute -top-2 right-4 w-6 h-8 bg-[#904C77] rounded-t-full"></div>
-          </div>
-        <div className="absolute bottom-4 -right-2 w-4 h-6 bg-[#ECCFC3] rounded-full transform rotate-12"></div>
-        <div className="absolute bottom-4 -right-6 w-4 h-6 bg-[#ECCFC3] rounded-full transform -rotate-12"></div>
+    <section id="home" className="min-h-screen bg-gradient-to-r from-[#ECCFC3] to-[#ECB8A5] text-gray-800 overflow-hidden">
+      <div className="container mx-auto px-6 py-10 lg:py-16">
+        <div className="flex items-center justify-between mb-10">
+          <div className="text-lg font-semibold text-gray-800">Mary Grace V. Comeso</div>
+          <button className="md:hidden text-gray-800 border border-gray-800 rounded-full p-3 hover:bg-gray-800/10 transition">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
-      </div>
-      
-      <div className="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center">
-        <div className="md:w-1/2 mb-10 md:mb-0">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Hello, I'm <span className="text-[#904C77]">Grace</span>
-          </h1>
-          <h2 className="text-2xl text-gray-600 mb-6">Integrative Programming and Technologies 2</h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-lg fade-in">
-            A third-year BSIT student passionate about technology, 
-            programming, and innovative system development.
-          </p>
-          <div className="space-y-4">
-            <div className="flex items-center fade-in">
-              <svg className="w-6 h-6 text-[#904C77] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
-              </svg>
-              <span className="text-gray-700">Location: Mamburao, Occidental Mindoro</span>
-            </div>
-            <div className="flex items-center fade-in">
-              <svg className="w-6 h-6 text-[#904C77] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-              </svg>
-              <span className="text-gray-700">gracecomeso0838@gmail.com</span>
-            </div>
+
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="relative overflow-hidden rounded-3xl border-4 border-white shadow-xl">
+            <img
+              src="/src/assets/profile.jpeg"
+              alt="Portfolio Hero"
+              className="w-full h-[600px] object-cover"
+            />
           </div>
-        </div>
-        <div className="md:w-1/2 flex justify-center">
-          <div className="relative">
-            <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-[#E49AB0] to-[#904C77] rounded-full overflow-hidden shadow-xl border-4 border-white">
-              <img src="/src/assets/profile.jpeg" alt="Profile Picture" className="w-full h-full object-cover" />
+
+          <div className="space-y-8">
+            <p className="text-sm uppercase tracking-[0.4em] text-[#904C77]">Welcome to my portfolio</p>
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-800">My<br />Portfolio</h1>
+              <p className="max-w-xl text-gray-700 text-lg leading-8">
+                I build modern digital experiences for web and mobile. Explore my projects, see my work, and discover how I turn ideas into polished interfaces.
+              </p>
             </div>
-            <div className="absolute -bottom-4 -right-4 bg-[#ECB8A5] text-gray-800 px-4 py-2 rounded-full font-bold shadow-lg">
-              Available for work
+            <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
+              <a href="#projects" className="inline-flex items-center justify-center rounded-full bg-[#904C77] text-white px-8 py-3 font-semibold hover:bg-[#E49AB0] transition">
+                Explore Now
+              </a>
             </div>
           </div>
         </div>
@@ -440,15 +420,46 @@ const Reflection = () => {
 function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
+  const [messages, setMessages] = useState([
+    { id: 1, sender: 'bot', text: 'Hi! Send me a message and I will reply here.' }
+  ]);
+  const messagesEndRef = useRef(null);
+
+  const getBotReply = (text) => {
+    const lowerText = text.toLowerCase();
+
+    if (/\b(hi|hello|hey|greetings)\b/.test(lowerText)) {
+      return 'Hello! I am Grace. How can I help you today?';
+    }
+
+    if (/\b(project|portfolio|website|app|demo)\b/.test(lowerText)) {
+      return 'This is my midterm project portfolio. I built it using React and Tailwind styling.';
+    }
+
+    if (/\b(email|contact|phone|call)\b/.test(lowerText)) {
+      return 'You can reach me at gracecomeso0838@gmail.com or use the chat here for a quick demo reply.';
+    }
+
+    if (/\b(help|support|question|issue|problem)\b/.test(lowerText)) {
+      return 'Sure, I can help. Please tell me more about what you need.';
+    }
+
+    if (/\b(thank|thanks)\b/.test(lowerText)) {
+      return 'You are welcome! Feel free to send another message if you have more questions.';
+    }
+
+    if (/\b(about|who|what|where|when|why|how)\b/.test(lowerText)) {
+      return 'I am a student building a portfolio project. Ask me anything about my skills or work!';
+    }
+
+    return 'Thanks for your message! I will reply as soon as possible. Could you tell me more?';
+  };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowMessage(true);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -457,7 +468,6 @@ function App() {
       
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         
         if (window.pageYOffset >= (sectionTop - 100)) {
           current = section.getAttribute('id');
@@ -487,7 +497,7 @@ function App() {
     <div className="bg-gray-100 min-h-screen">
       <nav className="bg-[#904C77] text-white p-4 sticky top-0 z-10 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
-          <div className="text-xl font-bold">My Portfolio</div>
+          <div className="text-xl font-bold">IPT 2</div>
           <ul className="flex space-x-6">
             {['home', 'about', 'skills', 'projects', 'reflection'].map((section) => (
               <li key={section}>
@@ -504,15 +514,17 @@ function App() {
         </div>
       </nav>
 
-      <Home />
-      <About />
-      <Skills />
-      <Projects />
-      <Reflection />
+      <main>
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <Reflection />
+      </main>
 
       <footer className="bg-[#904C77] text-white py-12">
         <div className="container mx-auto px-6 text-center">
-          <p className="mb-4">&copy; 2026 My Portfolio. All rights reserved.</p>
+          <p className="mb-4">Midterm Project</p>
           <div className="flex justify-center space-x-6">
             <a href="https://github.com/grachampagne" target="_blank" rel="noopener noreferrer" className="hover:text-[#E49AB0] transition">GitHub</a>
             <a href="mailto:gracecomeso0838@gmail.com" className="hover:text-[#E49AB0] transition">Email</a>
@@ -521,16 +533,6 @@ function App() {
       </footer>
 
       <div className="fixed bottom-6 right-6 z-50">
-        {showMessage && !isChatOpen && (
-          <div className="absolute bottom-16 right-0 bg-white rounded-lg shadow-xl p-4 mb-4 w-72 border-2 border-[#904C77]">
-            <div className="relative">
-              <div className="absolute -bottom-2 left-6 w-4 h-4 bg-white transform rotate-45 border-l-2 border-b-2 border-[#904C77]"></div>
-              <p className="text-gray-800 font-medium mb-1">Hi there! 👋</p>
-              <p className="text-sm text-gray-600">Want to discuss a project? Feel free to contact me!</p>
-            </div>
-          </div>
-        )}
-
         <button
           onClick={() => setIsChatOpen(!isChatOpen)}
           className="bg-[#904C77] hover:bg-[#E49AB0] text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110"
@@ -541,62 +543,90 @@ function App() {
         </button>
 
         {isChatOpen && (
-          <div className="absolute bottom-20 right-0 bg-white rounded-lg shadow-xl w-80 overflow-hidden border-2 border-[#904C77]">
+          <div className="absolute bottom-20 right-0 bg-white rounded-lg shadow-xl w-96 overflow-hidden border-2 border-[#904C77]">
             <div className="bg-[#904C77] text-white p-4 flex items-center justify-between">
-              <div>
-                <h3 className="font-bold">Contact Me</h3>
-                <p className="text-xs text-[#ECCFC3]">Let's chat!</p>
+              <div className="flex items-center space-x-3">
+                <img 
+                  src="/src/assets/profile.jpeg" 
+                  alt="Grace" 
+                  className="w-10 h-10 rounded-full object-cover border-2 border-white"
+                />
+                <div>
+                  <h3 className="font-bold">Grace Comeso</h3>
+                  <p className="text-xs text-[#ECCFC3]">Online</p>
+                </div>
               </div>
-              <button
-                onClick={() => setIsChatOpen(false)}
-                className="text-white hover:text-[#ECCFC3] transition"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+              <div className="flex items-center space-x-2">
+                <a
+                  href="tel:+639123456789"
+                  className="text-white hover:text-[#ECCFC3] transition flex items-center justify-center w-8 h-8 rounded-full hover:bg-white/20"
+                  title="Call Grace"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                </a>
+                <button
+                  onClick={() => setIsChatOpen(false)}
+                  className="text-white hover:text-[#ECCFC3] transition flex items-center justify-center w-8 h-8 rounded-full hover:bg-white/20"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
             </div>
 
             <div className="p-4 h-64 overflow-y-auto bg-gray-50">
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="bg-[#ECCFC3] rounded-lg rounded-tl-none p-3 max-w-xs">
-                    <p className="text-sm text-gray-800">Hello! I'm Grace, a passionate developer 💻</p>
+              <div className="space-y-3">
+                {messages.map((message) => (
+                  <div
+                    key={message.id}
+                    className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                  >
+                    <div className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-6 ${message.sender === 'user' ? 'bg-[#904C77] text-white rounded-br-none' : 'bg-white text-gray-800 rounded-bl-none border border-gray-200'}`}>
+                      {message.text}
+                    </div>
                   </div>
-                </div>
-                
-                <div className="flex items-start justify-end">
-                  <div className="bg-[#904C77] text-white rounded-lg rounded-tr-none p-3 max-w-xs ml-auto">
-                    <p className="text-sm">I specialize in frontend development and UI/UX design!</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-[#ECCFC3] rounded-lg rounded-tl-none p-3 max-w-xs">
-                    <p className="text-sm text-gray-800">Have a project in mind? Let's work together! 🚀</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-[#E49AB0] rounded-lg rounded-tl-none p-3 max-w-xs">
-                    <p className="text-sm text-gray-800 font-semibold">Quick Contact Options:</p>
-                    <ul className="text-xs text-gray-700 mt-2 space-y-1">
-                      <li>📧 gracecomeso0838@gmail.com</li>
-                      <li>📍 Mamburao, Occidental Mindoro</li>
-                      <li>💼 Available for opportunities</li>
-                    </ul>
-                  </div>
-                </div>
+                ))}
+                <div ref={messagesEndRef} />
               </div>
             </div>
 
             <div className="p-3 bg-white border-t border-gray-200">
-              <a
-                href="mailto:gracecomeso0838@gmail.com"
-                className="block w-full bg-[#904C77] hover:bg-[#E49AB0] text-white text-center py-2 rounded-lg transition-colors duration-300 font-medium"
-              >
-                Send Email to gracecomeso0838@gmail.com
-              </a>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const message = e.target.message.value.trim();
+                if (!message) return;
+
+                const userMessage = { id: Date.now(), sender: 'user', text: message };
+                setMessages((prev) => [...prev, userMessage]);
+                e.target.message.value = '';
+
+                setTimeout(() => {
+                  setMessages((prev) => [
+                    ...prev,
+                    {
+                      id: Date.now() + 1,
+                      sender: 'bot',
+                      text: getBotReply(message)
+                    }
+                  ]);
+                }, 700);
+              }} className="flex space-x-2">
+                <input
+                  type="text"
+                  name="message"
+                  placeholder="Type your message..."
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-[#904C77] focus:ring-1 focus:ring-[#904C77]"
+                />
+                <button
+                  type="submit"
+                  className="bg-[#904C77] hover:bg-[#E49AB0] text-white rounded-full px-6 py-2 transition-colors duration-300 font-medium"
+                >
+                  Send
+                </button>
+              </form>
             </div>
           </div>
         )}
