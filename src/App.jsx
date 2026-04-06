@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import './index.css';
+import profileImage from './assets/profile.jpeg';
+import medaiImage from './assets/medai.png';
+import landingPageImage from './assets/landing page.png';
 
 const Home = () => {
   useEffect(() => {
@@ -31,7 +34,7 @@ const Home = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="relative overflow-hidden rounded-3xl border-4 border-white shadow-xl">
             <img
-              src="/src/assets/profile.jpeg"
+              src={profileImage}
               alt="Portfolio Hero"
               className="w-full h-[600px] object-cover"
             />
@@ -268,7 +271,7 @@ const Projects = () => {
       title: 'MedAi',
       description: 'A responsive AI-Driven healthcare web application built with HTML, CSS, and JavaScript. Features include tracking body aches, user history management, and an AI insight system.',
       role: 'Programmer',
-      image: '/src/assets/medai.png',
+      image: medaiImage,
       tags: [
         { name: 'HTML', color: 'bg-[#ECCFC3] text-[#904C77]' },
         { name: 'OpenAI API', color: 'bg-[#E49AB0] text-[#904C77]' }
@@ -278,7 +281,7 @@ const Projects = () => {
       title: 'SomaSphere',
       description: 'A mobile application that allows individuals with mental health concerns to connect with professional counselors through secure messaging and access therapy support. Built with React Native and Firebase for real-time updates.',
       role: 'Programmer',
-      image: '/src/assets/landing page.png',
+      image: landingPageImage,
       tags: [
         { name: 'React Native', color: 'bg-[#957D95] text-[#904C77]' },
         { name: 'Firebase', color: 'bg-red-100 text-red-800' },
@@ -547,7 +550,7 @@ function App() {
             <div className="bg-[#904C77] text-white p-4 flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <img 
-                  src="/src/assets/profile.jpeg" 
+                  src={profileImage} 
                   alt="Grace" 
                   className="w-10 h-10 rounded-full object-cover border-2 border-white"
                 />
